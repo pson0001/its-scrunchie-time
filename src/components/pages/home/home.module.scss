@@ -1,0 +1,152 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: grab;
+
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+.home {
+    width: 200vw;
+    height: 200vh;
+    will-change: transform;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.scrunchies {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.scrunchieImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+.logoBig {
+    width: 80vw;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(225, 225, 225, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    cursor: pointer;
+    animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+    position: relative;
+    width: clamp(300px, 80vw, 800px);
+    height: clamp(200px, 60vh, 600px);
+    display: flex;
+
+    justify-content: center;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    gap: 2rem;
+}
+
+.modalImageContainer {
+    flex: 1;
+}
+
+.modalImage {
+    max-width: 300px;
+    object-fit: contain;
+    cursor: default;
+}
+
+.modalDescription {
+    flex: 1;
+
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 3rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10001;
+    line-height: 1;
+    padding: 0;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
