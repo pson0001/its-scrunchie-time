@@ -7,7 +7,6 @@
     left: 0;
     cursor: grab;
 
-
     &:active {
         cursor: grabbing;
     }
@@ -22,7 +21,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 4rem;
+    gap: 6vw;
 }
 
 .scrunchies {
@@ -31,12 +30,12 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 6vw;
 }
 
 .scrunchieImage {
-    width: 200px;
-    height: 200px;
+    width: 12vw;
+    height: 12vw;
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -65,7 +64,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(225, 225, 225, 0.25);
+    background: rgba(255, 255, 255, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,15 +75,19 @@
 
 .modalContent {
     position: relative;
-    width: clamp(300px, 80vw, 800px);
-    height: clamp(200px, 60vh, 600px);
+    // width: clamp(300px, 80vw, 800px);
+    // height: clamp(200px, 60vh, 600px);
     display: flex;
-
     justify-content: center;
-    background-color: #fff;
+    // background-color: #fff;
     padding: 2rem;
     border-radius: 1rem;
     gap: 2rem;
+
+    @media (max-width: 768px) {
+        align-items: center;
+        flex-direction: column;
+    }
 }
 
 .modalImageContainer {

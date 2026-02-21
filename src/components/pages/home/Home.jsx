@@ -11,8 +11,16 @@ import A2Black from '../../../assets/img/A2-black.png'
 import A2Red from '../../../assets/img/A2-red.png'
 import A2Blue from '../../../assets/img/A2-blue.png'
 import A2Yellow from '../../../assets/img/A2-yellow.png'
-import Placeholder from '../../../assets/img/placeholder.png'
 import LogoBig from '../../../assets/img/logo-big.svg'
+import A3Black from '../../../assets/img/A3-black.png'
+import A3Pink from '../../../assets/img/A3-pink.png'
+import A3Blue from '../../../assets/img/A3-blue.png'
+import A3Orange from '../../../assets/img/A3-orange.png'
+import A4White from '../../../assets/img/A4-white.png'
+import A4Pink from '../../../assets/img/A4-pink.png'
+import A4Yellow from '../../../assets/img/A4-yellow.png'
+import A4Blue from '../../../assets/img/A4-blue.png'
+import Placeholder from '../../../assets/img/placeholder.png'
 import { IconX } from '../../../assets/Icon'
 gsap.registerPlugin(Draggable)
 
@@ -34,8 +42,24 @@ const Home = () => {
         A2Black,
         A2Red,
         A2Blue,
-        A2Yellow, Placeholder
+        Placeholder,
+        A2Yellow,
     ]
+
+    const A3 = [
+        A3Black,
+        Placeholder,
+        A3Pink,
+        A3Blue,
+        A3Orange
+    ]
+
+    const A4 = [
+        A4White,
+        A4Pink,
+        A4Blue,
+        A4Yellow,
+        Placeholder]
 
     useEffect(() => {
         const container = containerRef.current
@@ -141,7 +165,17 @@ const Home = () => {
     return (
         <>
             <div ref={containerRef} className={c.container}>
-                <div ref={contentRef} className={c.home}>
+                <div ref={contentRef} className={c.home}> <div className={c.scrunchies}>
+                    {A3.map((scrunchie, index) => (
+                        <img
+                            key={index}
+                            src={scrunchie}
+                            alt={`scrunchie-${index + 1}`}
+                            onClick={() => handleImageClick(scrunchie)}
+                            className={c.scrunchieImage}
+                        />
+                    ))}
+                </div>
                     <div className={c.scrunchies}>
                         {A1.map((scrunchie, index) => (
                             <img
@@ -156,6 +190,16 @@ const Home = () => {
                     <img src={LogoBig} alt="Logo" className={c.logoBig} />
                     <div className={c.scrunchies}>
                         {A2.map((scrunchie, index) => (
+                            <img
+                                key={index}
+                                src={scrunchie}
+                                alt={`scrunchie-${index + 1}`}
+                                onClick={() => handleImageClick(scrunchie)}
+                                className={`${c.scrunchieImage} ${scrunchie === Placeholder ? c.disabled : ''}`}
+                            />
+                        ))}
+                    </div> <div className={c.scrunchies}>
+                        {A4.map((scrunchie, index) => (
                             <img
                                 key={index}
                                 src={scrunchie}
@@ -185,9 +229,9 @@ const Home = () => {
                                 className={c.modalImage}
                             />
                         </div>
-                        <div className={c.modalDescription}>
+                        {/* <div className={c.modalDescription}>
                             Here is the description of the scrunchie
-                        </div>
+                        </div> */}
                     </div>
 
                 </div>
